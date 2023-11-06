@@ -21,7 +21,7 @@ python deploy.py --webcam 0             # webcam
                  --image  image.jpg     # image
                  --video  vid.mp4       # video
 ```
-##Results: 
+## Results: 
 Some output predictions for experiments are shown below:
 ![example](demo/out_put1.jpg)
 ![example](demo/out_put2.jpg)
