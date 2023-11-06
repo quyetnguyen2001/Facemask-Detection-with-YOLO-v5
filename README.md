@@ -4,7 +4,7 @@ Here my pytorch implementation of the model described in the paper yolov5: [pape
 
 ![example](face_mask_detection_yolo/../demo/video.gif)
 ![example](face_mask_detection_yolo/../demo/test.gif)
-<p style="text-align: center;">An example of my model's output.</p>
+<p style="text-align: center;">Examples of my model's output.</p>
 
 ## Requirements: 
 - **python 3.9**
