@@ -1,19 +1,13 @@
 import cv2
-from PIL import Image
-from torchvision.models.detection import fasterrcnn_resnet50_fpn, FasterRCNN_ResNet50_FPN_Weights
-import torchvision
 import torch
 import argparse
-import torch.nn as nn
-from ultralytics import YOLO
-import pandas as pd
 
 
 def get_args():
     parser = argparse.ArgumentParser(description="test model")
     parser.add_argument("--image", "-i", type=str, default=None)
     parser.add_argument("--video", "-v", type=str, default=None)
-    parser.add_argument("--web_cam", "-w", type=int, default=None)
+    parser.add_argument("--webcam", "-w", type=int, default=0)
     parser.add_argument("--size", "-s", type=int, default=416)
     parser.add_argument("--threshold", "-t", type=float, default=0.5)
     parser.add_argument("--vid_out", type=str, default=None)
@@ -50,7 +44,7 @@ def plot_boxes(results, frame, classes):
     return frame
 
 
-def main(image=args.image, vid_path=args.video, web_cam = args.web_cam, vid_out=args.vid_out):
+def main(image=args.image, vid_path=args.video, web_cam = args.webcam, vid_out=args.vid_out):
 
     model = torch.hub.load('Yolov5_model/yolov5','custom',path='best.pt',source='local')
     classes = model.names
@@ -60,7 +54,7 @@ def main(image=args.image, vid_path=args.video, web_cam = args.web_cam, vid_out=
         results = model(im)
         im = cv2.cvtColor(im, cv2.COLOR_RGB2BGR)
         im = plot_boxes(results, im , classes)
-        cv2.imwrite('out_put1.jpg',im)
+        cv2.imwrite('out_put.jpg',im)
         cv2.imshow('test',im)
         cv2.waitKey(0)
     if vid_path != None or web_cam != None:

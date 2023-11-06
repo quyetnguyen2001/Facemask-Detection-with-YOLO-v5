@@ -1,6 +1,5 @@
 import os 
 import xml.etree.ElementTree as ET
-import cv2
 path = "data/dataset/annotations"
 
 files = os.listdir(path)
